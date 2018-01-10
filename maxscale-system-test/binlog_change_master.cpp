@@ -135,8 +135,9 @@ int main(int argc, char *argv[])
     char rep[256];
     int rep_d;
 
-    Test->tprintf("Sleeping to let replication happen\n");
-    sleep(30);
+    Test->tprintf("Synchronizing replication");
+    Test->repl->sync_slaves();
+    Test->tprintf("Done");
 
     Test->repl->connect();
 
